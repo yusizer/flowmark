@@ -82,7 +82,7 @@ The unique 6-letter HACD name tied to your lot. It is the non-fungible identity 
 **Can I participate with more than 10 HACD?**
 No. The maximum per participant is 10 HACD lots.
 
-**What happens if I unstake?**
+**What happens if I remove my Stack?**
 Removing a Stack releases your HACD but permanently burns the 10,000 FLOW tied to that lot and retires the StreamMark receipt ID. The HAC formation cost is not refunded.
 
 **Is FLOW an investment?**

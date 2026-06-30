@@ -59,7 +59,7 @@ When they're gone, they're gone.
 
 **Thread: What is FlowMark?**
 
-1/ FlowMark (FLOW) is a utility Stack Asset launching through HACD Incubator Cohort 2 — built for the GrowStreams ecosystem.
+1/ FlowMark (FLOW) is a utility Stack Asset built for the HACD Incubator Cohort 2 sprint — built for the GrowStreams ecosystem.
 
 2/ Total supply: 2,560,000 FLOW across 256 HACD lots. Each lot forms 10,000 FLOW and one StreamMark receipt ID at 50 HAC formation cost.
 

@@ -10,7 +10,7 @@
 - [x] Removal / burn logic is defined and consistent (burn FLOW + retire receipt ID)
 - [ ] Maximum per participant (10 HACD) enforcement confirmed at Launchpad level — **Needs issuer confirmation**
 - [ ] Stack cost (50 HAC) confirmed as final — **Needs issuer confirmation**
-- [x] Designated address for first 32 lots confirmed as issuer's Hacash address (15j5fHZzL8Qkzi7YBtChf2GDfM6RJvUht7)
+- [ ] Designated address for first 32 lots — pending HACD Labs confirmation that 15j5fHZzL8Qkzi7YBtChf2GDfM6RJvUht7 is the issuer's verified Hacash address
 
 ## Copy safety
 
@@ -30,7 +30,7 @@
 - [ ] Launchpad URL — **Missing, to be confirmed by HACD Labs**
 - [ ] Issuer identity confirmed to HACD Labs privately — **Pending**
 - [x] Issuer X handle (@Yusifab7) and contact (yusifabdullayev48@gmail.com) replaced with real values
-- [ ] Website replaced with live Lovable demo URL — **Pending demo build**
+- [x] Website replaced with live GitHub Pages demo URL (https://yusizer.github.io/flowmark/)
 - [x] Issuer has confirmed numbers in intake form
 - [ ] issuer_confirmed flag set to true in launch_spec.json — **Pending issuer sign-off**
 - [ ] hacd_labs_reviewed flag set to true in launch_spec.json — **Pending HACD Labs review**

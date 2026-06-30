@@ -7,7 +7,7 @@
 - Category: utility
 - One-sentence description: FlowMark anchors money-streaming commitments to HACD Stack formation records — immutable, PoW-backed proof that a payment stream started.
 - Founder / team: Yusif (issuer, X @Yusifab7) — identity to be confirmed to HACD Labs privately
-- Website: https://flowmark.hacd (placeholder, to be replaced with live Lovable demo URL)
+- Website: https://yusizer.github.io/flowmark/ (live GitHub Pages demo)
 - X / community links: @Yusifab7
 - Contact: yusifabdullayev48@gmail.com
 
@@ -56,10 +56,10 @@
 - Target audience: streaming-protocol users (GrowStreams/Vara), freelancers and bounty platforms needing payment proof, revenue-share and payroll operators, HACD collectors.
 - Main narrative: Streaming proof formed through PoW. Not a dashboard claim — a HACD-anchored receipt.
 - Tone: serious / technical / educational
-- Key announcement message: FlowMark is the first money-streaming receipt asset formed through HACD Stack in Cohort 2, built for the GrowStreams ecosystem.
+- Key announcement message: FlowMark is a money-streaming receipt asset formed through HACD Stack, built for the GrowStreams ecosystem (HACD Incubator Cohort 2 sprint).
 - Three things you want users to understand:
   1. FLOW supply is hard-capped at 2,560,000 units across 256 HACD lots.
-  2. Each lot requires 1 HACD and 50 HAC formation cost and mints one StreamMark receipt ID.
+  2. Each lot requires 1 HACD and 50 HAC formation cost and forms one StreamMark receipt ID.
   3. This is a utility asset for payment proof, not an investment product.
 
 ## 8. Risk disclosure

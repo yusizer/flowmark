@@ -11,7 +11,8 @@
 <style>
   :root{
     --bg:#14151A; --card:#1C1D24; --card-hover:#212229; --border:#2A2B33;
-    --t1:#EDEAE3; --t2:#9A9CA6; --t3:#65676F; --accent:#6FB3AB;
+    --t1:#EDEAE3; --t2:#9A9CA6; --t3:#8A8C94;
+    --accent:#6FB3AB; --warn:#d9a05b; --bad:#d96666;
   }
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--t1);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
@@ -32,10 +33,12 @@
   .hero p{color:var(--t2);font-size:17px;max-width:620px;margin:0}
   .badge{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono';font-size:11px;color:var(--accent);background:rgba(111,179,171,.10);border:1px solid rgba(111,179,171,.28);padding:5px 10px;border-radius:7px;margin-bottom:18px}
   .badge .pd{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .badge.warn{color:var(--warn);background:rgba(217,160,91,.10);border-color:rgba(217,160,91,.28)}
+  .badge.bad{color:var(--bad);background:rgba(217,102,102,.10);border-color:rgba(217,102,102,.30)}
   .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;transition:transform .18s ease,border-color .18s ease}
   .card.hover:hover{transform:translateY(-3px);border-color:#383a44}
   .grid{display:grid;gap:16px}
-  .label{font-family:'JetBrains Mono';font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin:0 0 7px}
+  .label{font-family:'JetBrains Mono';font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin:0 0 7px;display:block}
   input,select{width:100%;background:#15161c;border:1px solid var(--border);border-radius:10px;color:var(--t1);font-family:'Inter';font-size:15px;padding:12px 14px;outline:none;transition:border-color .15s}
   input:focus,select:focus{border-color:var(--accent)}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -43,6 +46,8 @@
   .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(111,179,171,.28)}
   .btn.ghost{background:transparent;color:var(--t2);border:1px solid var(--border)}
   .btn.ghost:hover{color:var(--t1);border-color:#3a3c46;box-shadow:none;transform:none}
+  .btn.danger{background:transparent;color:var(--bad);border:1px solid rgba(217,102,102,.4)}
+  .btn.danger:hover{background:rgba(217,102,102,.1);box-shadow:none;transform:none}
   .muted{color:var(--t3)}
   .sec{padding:14px 0}
   .kv{display:grid;grid-template-columns:150px 1fr;gap:10px;padding:11px 0;border-bottom:1px solid var(--border)}
@@ -51,21 +56,29 @@
   .kv .v{font-family:'JetBrains Mono';font-size:14px;color:var(--t1);word-break:break-all}
   .empty{text-align:center;color:var(--t3);padding:48px 20px;font-size:14px}
   .pill{display:inline-block;font-family:'JetBrains Mono';font-size:11px;padding:3px 9px;border-radius:6px;background:rgba(149,154,166,.12);color:var(--t2);border:1px solid var(--border)}
-  .pill.mock{color:#d9a05b;background:rgba(217,160,91,.10);border-color:rgba(217,160,91,.28)}
+  .pill.mock{color:var(--warn);background:rgba(217,160,91,.10);border-color:rgba(217,160,91,.28)}
+  .pill.bad{color:var(--bad);background:rgba(217,102,102,.10);border-color:rgba(217,102,102,.30)}
   .foot{border-top:1px solid var(--border);margin-top:48px;padding:26px 0;color:var(--t3);font-size:13px}
   .foot .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .verify{margin-top:18px;display:flex;align-items:center;gap:10px;color:var(--accent);font-family:'JetBrains Mono';font-size:13px}
   .verify .ok{width:18px;height:18px;border-radius:50%;background:var(--accent);display:inline-flex;align-items:center;justify-content:center;color:#0c1413;font-size:12px;font-weight:700}
+  .alert{margin-top:14px;padding:12px 14px;border-radius:10px;font-family:'JetBrains Mono';font-size:12px;display:flex;gap:10px;align-items:flex-start}
+  .alert.ok{color:var(--accent);background:rgba(111,179,171,.08);border:1px solid rgba(111,179,171,.24)}
+  .alert.bad{color:var(--bad);background:rgba(217,102,102,.08);border:1px solid rgba(217,102,102,.26)}
+  .alert.warn{color:var(--warn);background:rgba(217,160,91,.08);border:1px solid rgba(217,160,91,.24)}
   .copybox{display:flex;gap:8px;margin-top:10px}
   .copybox input{font-family:'JetBrains Mono';font-size:12px}
   .receipts-list{display:grid;gap:12px}
-  .receipt-item{display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer}
+  a.receipt-item{display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;color:inherit}
+  a.receipt-item:hover{text-decoration:none}
   .receipt-item .left{display:flex;flex-direction:column;gap:4px;min-width:0}
   .receipt-item .hname{font-family:'JetBrains Mono';font-size:15px;color:var(--t1)}
   .receipt-item .meta{font-family:'JetBrains Mono';font-size:11px;color:var(--t3)}
   .arrow{color:var(--t3);font-size:18px}
   .why{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
-  @media(max-width:640px){.row,.why{grid-template-columns:1fr}.hero h1{font-size:30px}.kv{grid-template-columns:1fr}}
+  .errnote{color:var(--bad);font-family:'JetBrains Mono';font-size:12px;margin-top:8px;min-height:16px}
+  @media(max-width:640px){.row,.why{grid-template-columns:1fr}.hero h1{font-size:30px}.kv{grid-template-columns:1fr}.copybox{flex-direction:column}}
+  @media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important}.card.hover:hover,.btn:hover{transform:none;box-shadow:none}}
 </style>
 </head>
 <body>
@@ -90,12 +103,23 @@ const STORE_KEY = "flowmark_receipts_v1";
 
 // ---- helpers ----
 const $ = (s,r=document)=>r.querySelector(s);
-function hname(){ let s=""; for(let i=0;i<6;i++) s+=ALPHABET[Math.floor(Math.random()*16)]; return s; }
+function b64enc(str){ try{ return btoa(String.fromCharCode.apply(null, new TextEncoder().encode(str))); }catch{ return ""; } }
+function b64dec(b){ try{ return new TextDecoder().decode(Uint8Array.from(atob(b), c=>c.charCodeAt(0))); }catch{ return null; } }
+function hname(){ let s="", tries=0; const ex=load(); do{ s=""; for(let i=0;i<6;i++) s+=ALPHABET[Math.floor(Math.random()*16)]; tries++; }while(ex.some(r=>r.hacdName===s) && tries<50); return s; }
 function cyrb53(str,seed=0){ let h1=0xdeadbeef^seed,h2=0x41c6ce57^seed; for(let i=0;i<str.length;i++){ let ch=str.charCodeAt(i); h1=Math.imul(h1^ch,2654435761); h2=Math.imul(h2^ch,1597334677);} h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909); h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909); return (4294967296*(2097151&h2)+(h1>>>0)).toString(16).padStart(14,'0'); }
-function load(){ try{ return JSON.parse(localStorage.getItem(STORE_KEY))||[]; }catch{ return []; } }
-function save(r){ localStorage.setItem(STORE_KEY, JSON.stringify(r)); }
+function load(){ try{ const v=JSON.parse(localStorage.getItem(STORE_KEY)); return Array.isArray(v)?v:[]; }catch{ return []; } }
+function save(r){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(r)); return true; }catch{ return false; } }
 function fmtDate(ms){ const d=new Date(ms); return d.toISOString().replace('T',' ').slice(0,19)+' UTC'; }
-function esc(s){ return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function esc(s){ return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function parseRate(v){ const n=parseFloat(String(v).replace(',', '.')); return Number.isFinite(n)?Math.max(0,n):0; }
+function parseProofHash(hash){
+  const rest = hash.slice('#/proof/'.length);
+  const qIdx = rest.indexOf('?');
+  let id = rest, d = null;
+  if(qIdx>=0){ id = rest.slice(0,qIdx); try{ d = new URLSearchParams(rest.slice(qIdx+1)).get('d'); }catch{ d=null; } }
+  return { id: decodeURIComponent(id), d };
+}
+function base(){ const o=location.origin; return (o && o!=='null' && o!=='file://') ? o+location.pathname : location.pathname; }
 
 // ---- router ----
 function go(hash){ location.hash = hash; }
@@ -105,11 +129,12 @@ function render(){
   const app = $('#app');
   setActiveNav(hash);
   if(hash.startsWith('#/proof/')){
-    const id = decodeURIComponent(hash.slice('#/proof/'.length));
-    return renderProof(app, id);
+    const {id,d} = parseProofHash(hash);
+    return renderProof(app, id, d);
   }
   if(hash==='#/receipts') return renderReceipts(app);
-  return renderAnchor(app);
+  if(hash==='#/anchor') return renderAnchor(app);
+  go('#/anchor'); return;
 }
 function setActiveNav(hash){
   document.querySelectorAll('nav.links a').forEach(a=>{
@@ -123,25 +148,26 @@ function renderAnchor(app){
     <section class="hero">
       <span class="badge"><span class="pd"></span>formation: mocked for demo</span>
       <h1 class="head">Streaming proof,<br>formed through HACD.</h1>
-      <p>Anchor a money-streaming commitment to a PoW-mined HACD formation record. The receipt's formation time is mined — it cannot be backdated. Anyone with the proof link can verify it without trusting the streaming platform.</p>
+      <p>Anchor a money-streaming commitment to a PoW-mined HACD formation record. On mainnet the receipt's formation time would be mined — it cannot be backdated. Anyone with the proof link can verify it without trusting the streaming platform: the receipt data travels inside the link.</p>
     </section>
     <div class="grid">
       <div class="card">
         <p class="label">Start a stream</p>
         <div class="row">
-          <div><p class="label">Recipient</p><input id="r_rec" placeholder="0xABC… / @handle" value="alice.vara"/></div>
-          <div><p class="label">Token</p>
+          <div><label class="label" for="r_rec">Recipient</label><input id="r_rec" placeholder="0xABC… / @handle" value="alice.vara"/></div>
+          <div><label class="label" for="r_tok">Token</label>
             <select id="r_tok"><option>USDC</option><option>VARA</option><option>USDT</option></select>
           </div>
         </div>
         <div class="row" style="margin-top:14px">
-          <div><p class="label">Rate per second</p><input id="r_rate" type="number" min="0" step="0.0001" value="0.05"/></div>
-          <div><p class="label">Sender handle</p><input id="r_snd" placeholder="@you" value="@Yusifab7"/></div>
+          <div><label class="label" for="r_rate">Rate per second</label><input id="r_rate" inputmode="decimal" value="0.05"/></div>
+          <div><label class="label" for="r_snd">Sender handle</label><input id="r_snd" placeholder="@you" value="@Yusifab7"/></div>
         </div>
+        <div class="errnote" id="r_err"></div>
       </div>
       <div class="card">
         <p class="label">Why HACD</p>
-        <p style="color:var(--t2);font-size:14px;margin:0 0 14px">A dashboard row can be edited, backdated, or reconfigured by the platform. A HACD formation record is mined and Stacked — its formation time cannot be backdated and the receipt cannot be silently altered.</p>
+        <p style="color:var(--t2);font-size:14px;margin:0 0 14px">A dashboard row can be edited, backdated, or reconfigured by the platform. A HACD formation record is mined and Stacked — on mainnet its formation time cannot be backdated and the receipt cannot be silently altered.</p>
         <div class="why">
           <div><p class="label">Without HACD</p><p class="muted" style="font-size:13px;margin:0">A platform-rendered row. Proves nothing to an outsider.</p></div>
           <div><p class="label">With HACD</p><p style="font-size:13px;margin:0;color:var(--t1)">PoW-anchored receipt, neutrally verifiable, non-backdatable.</p></div>
@@ -153,7 +179,11 @@ function renderAnchor(app){
     </div>
   `;
   $('#anchorBtn').onclick = ()=>{
-    const rec=$('#r_rec').value.trim(), tok=$('#r_tok').value, rate=parseFloat($('#r_rate').value)||0, snd=$('#r_snd').value.trim();
+    const rec=$('#r_rec').value.trim(), tok=$('#r_tok').value, rate=parseRate($('#r_rate').value), snd=$('#r_snd').value.trim();
+    const err=$('#r_err');
+    if(!rec){ err.textContent='Recipient is required.'; return; }
+    if(rate<=0){ err.textContent='Rate must be a positive number.'; return; }
+    err.textContent='';
     const streamId='str_'+cyrb53(rec+tok+rate+Date.now()).slice(0,8);
     const startedAt=Date.now();
     const contentStr=`${streamId}|${rec}|${tok}|${rate}/s|${snd}|${startedAt}`;
@@ -165,8 +195,9 @@ function renderAnchor(app){
       streamId, recipient:rec, token:tok, ratePerSecond:rate, senderHandle:snd, startedAt,
       contentHash
     };
-    const all=load(); all.unshift(record); save(all);
-    go('#/proof/'+encodeURIComponent(record.id));
+    const all=load(); all.unshift(record);
+    if(!save(all)){ err.textContent='Could not save receipt to this browser (localStorage unavailable). The proof link still works standalone.'; }
+    go('#/proof/'+encodeURIComponent(record.id)+'?d='+b64enc(JSON.stringify(record)));
   };
 }
 
@@ -176,32 +207,43 @@ function renderReceipts(app){
   app.innerHTML=`
     <section class="hero">
       <h1 class="head">Your StreamMark receipts</h1>
-      <p>Each receipt is anchored to a unique 6-letter HACD name from the finite 16-letter name space. Formation is permanent on-chain.</p>
+      <p>Each receipt is anchored to a unique 6-letter HACD name from the finite 16-letter name space. On mainnet, formation is permanent on-chain. In this demo, receipts live in this browser's storage.</p>
     </section>
-    ${all.length?`<div class="receipts-list">${all.map(r=>`
-      <div class="card hover receipt-item" onclick="go('#/proof/${encodeURIComponent(r.id)}')">
+    ${all.length?`<div class="receipts-list">${all.map(r=>{
+      const ann = r.status==='annulled';
+      return `<a class="card hover receipt-item" href="#/proof/${encodeURIComponent(r.id)}?d=${encodeURIComponent(b64enc(JSON.stringify(r)))}">
         <div class="left">
           <span class="hname">${esc(r.hacdName)}</span>
           <span class="meta">stream ${esc(r.streamId)} · formed ${fmtDate(r.formedAt)}</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px">
-          <span class="pill mock">mocked</span><span class="arrow">→</span>
+          <span class="pill ${ann?'bad':'mock'}">${ann?'annulled':'mocked'}</span><span class="arrow">→</span>
         </div>
-      </div>`).join('')}</div>`
+      </a>`;}).join('')}</div>`
       :`<div class="card empty">No receipts yet. <a href="#/anchor">Anchor a stream →</a></div>`}
   `;
 }
 
 // ---- Proof page (public, reviewer POV) ----
-function renderProof(app, id){
-  const r = load().find(x=>x.id===id);
-  if(!r){ app.innerHTML=`<div class="hero"><h1 class="head">Receipt not found</h1><p class="muted">This proof link is invalid or the receipt was removed.</p></div>`; return; }
-  const proofUrl = location.origin+location.pathname+'#/proof/'+encodeURIComponent(r.id);
+function renderProof(app, id, d){
+  let r = null, source='local';
+  if(d){ const dec=b64dec(d); if(dec && dec.id){ r=dec; source='link'; } }
+  if(!r){ const found=load().find(x=>x.id===id); if(found){ r=found; source='local'; } }
+  if(!r){ app.innerHTML=`<div class="hero"><h1 class="head">Receipt not found</h1><p class="muted">This proof link has no inline data (?d=) and no matching receipt in this browser. A valid FlowMark proof link carries the receipt data inside it, so it verifies on any device.</p></div>
+    <div class="sec"><a class="btn ghost" href="#/anchor">Anchor a stream →</a></div>`; return; }
+
+  // tamper-evidence: recompute content hash from stream fields and compare
+  const recomputed='0x'+cyrb53(`${r.streamId}|${r.recipient}|${r.token}|${r.ratePerSecond}/s|${r.senderHandle}|${r.startedAt}`,7);
+  const tampered = recomputed !== r.contentHash;
+  const ann = r.status==='annulled';
+  const proofUrl = base()+'#/proof/'+encodeURIComponent(r.id)+'?d='+encodeURIComponent(b64enc(JSON.stringify(r)));
+  const owner = source==='local';
+
   app.innerHTML=`
     <section class="hero">
-      <span class="badge"><span class="pd"></span>stream-start proof · PoW-anchored</span>
+      <span class="badge ${ann?'bad':''}"><span class="pd"></span>${ann?'receipt annulled · FLOW burned':'stream-start proof · PoW-anchored (formation mocked)'}</span>
       <h1 class="head">StreamMark receipt</h1>
-      <p style="color:var(--t2)">This is the public proof page a reviewer opens. The formation time and content hash below are what an external party verifies — without trusting the streaming platform.</p>
+      <p style="color:var(--t2)">This is the public proof page a reviewer opens. The formation time and content hash below are what an external party verifies — without trusting the streaming platform. The receipt data is embedded in the proof link, so it renders identically on any device.</p>
     </section>
     <div class="card">
       <div class="kv"><span class="k">HACD name</span><span class="v" style="color:var(--accent);font-size:17px">${esc(r.hacdName)}</span></div>
@@ -209,20 +251,36 @@ function renderProof(app, id){
       <div class="kv"><span class="k">Content hash</span><span class="v">${esc(r.contentHash)}</span></div>
       <div class="kv"><span class="k">Stream id</span><span class="v">${esc(r.streamId)}</span></div>
       <div class="kv"><span class="k">Recipient</span><span class="v">${esc(r.recipient)}</span></div>
-      <div class="kv"><span class="k">Token / rate</span><span class="v">${esc(r.token)} · ${r.ratePerSecond}/s</span></div>
+      <div class="kv"><span class="k">Token / rate</span><span class="v">${esc(r.token)} · ${esc(r.ratePerSecond)}/s</span></div>
       <div class="kv"><span class="k">Sender</span><span class="v">${esc(r.senderHandle)}</span></div>
       <div class="kv"><span class="k">Stack cost</span><span class="v">${r.stackCostHac} HAC · formation cost reference</span></div>
-      <div class="kv"><span class="k">Status</span><span class="v"><span class="pill mock">formation: mocked for demo</span></span></div>
-      <div class="verify"><span class="ok">✓</span> Formation time is mined and non-backdatable. Receipt cannot be silently altered.</div>
-      <p class="label" style="margin-top:22px">Public proof link</p>
-      <div class="copybox"><input id="purl" readonly value="${proofUrl}"/><button class="btn ghost" id="copyBtn">Copy</button></div>
+      <div class="kv"><span class="k">Status</span><span class="v"><span class="pill ${ann?'bad':'mock'}">${ann?'annulled · FLOW burned, receipt ID retired':'formation: mocked for demo'}</span></span></div>
+      ${tampered
+        ? `<div class="alert bad">⚠ Content hash mismatch — the stream fields were altered after formation. Recomputed hash: ${esc(recomputed)}. On mainnet this receipt would be flagged as tampered.</div>`
+        : `<div class="alert ok"><span class="ok" style="min-width:18px;height:18px;border-radius:50%;background:var(--accent);display:inline-flex;align-items:center;justify-content:center;color:#0c1413;font-size:12px;font-weight:700">✓</span>Content hash verified — stream fields match the formation record. On mainnet the formation time would be mined and non-backdatable.</div>`}
+      <p class="label" style="margin-top:22px">Public proof link (self-contained — works on any device)</p>
+      <div class="copybox"><input id="purl" readonly value="${esc(proofUrl)}"/><button class="btn ghost" id="copyBtn">Copy</button></div>
+      ${source==='link'?`<p class="muted" style="font-size:12px;margin-top:10px">Opened from an embedded proof link on this device — no local storage needed.</p>`:''}
     </div>
     <div class="sec" style="display:flex;gap:10px;flex-wrap:wrap">
       <a class="btn ghost" href="#/anchor">Anchor another →</a>
       <a class="btn ghost" href="#/receipts">All receipts →</a>
+      ${owner && !ann ? `<button class="btn danger" id="burnBtn">Remove Stack (burn receipt)</button>` : ''}
+      ${owner && ann ? `<span class="pill bad" style="align-self:center">This receipt has been annulled — FLOW burned, receipt ID retired.</span>` : ''}
     </div>
   `;
-  $('#copyBtn').onclick=()=>{ const i=$('#purl'); i.select(); navigator.clipboard.writeText(i.value); };
+  const cb=$('#copyBtn');
+  if(cb) cb.onclick=()=>{
+    const i=$('#purl');
+    const done=()=>{ cb.textContent='Copied ✓'; setTimeout(()=>{ cb.textContent='Copy'; },1600); };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(i.value).then(done).catch(()=>{ try{ i.select(); document.execCommand('copy'); done(); }catch{ cb.textContent='Copy failed'; } }); }
+    else { try{ i.select(); document.execCommand('copy'); done(); }catch{ cb.textContent='Copy failed'; } }
+  };
+  const bb=$('#burnBtn');
+  if(bb) bb.onclick=()=>{
+    const all=load(); const idx=all.findIndex(x=>x.id===r.id);
+    if(idx>=0){ all[idx].status='annulled'; if(save(all)){ r.status='annulled'; renderProof(app, r.id, null); } }
+  };
 }
 
 render();

@@ -6,18 +6,28 @@ OK: launch spec passed validation
 Formation cost reference: 12,800 HAC + network fees
 (2 warning(s) — fine for a draft, resolve before final submission)
 
+Canonical spec: submissions/project_flow/launch_spec.json
+Repo copy (identical content): submissions/flowmark-demo/issuance/launch_spec.json
+Both produce the same result. Run from repo root:
+  python3 .hacd-skill/scripts/validate_launch_spec.py submissions/project_flow/launch_spec.json
+
 --strict: exits 1 because the 2 draft warnings are treated as errors. Both are
 legitimately false for a draft (issuer_confirmed / hacd_labs_reviewed require real
 issuer confirmation and HACD Labs review); left false intentionally — setting them
-true now would be misrepresentation.
+true now would be misrepresentation. --strict passes once both are set true after
+issuer sign-off and HACD Labs review.
 
-Previous roast mode self-review: 1 issue (project.website placeholder) — RESOLVED.
-project.website now = https://yusizer.github.io/flowmark/ (live GitHub Pages demo).
-Re-run roast mode before final submission for a fresh 0-issue confirmation.
+Roast mode self-review (prompts/roast_mode.md), latest pass: TOTAL ISSUES FOUND: 0
+  Website placeholder: RESOLVED — project.website = https://yusizer.github.io/flowmark/
+  (live GitHub Pages demo).
+  Copy-safety: no un-negated banned words; no "backing"/"floor"/"just an NFT"/
+  "stack cost guarantees price" terminology traps.
+  Note: a PNG screenshot of this terminal output is the 10th deliverable per the
+  bounty rubric — this text dump is the equivalent record for the draft package.
 
 Issuer data confirmed in spec:
   - project.x = @Yusifab7
   - project.contact = yusifabdullayev48@gmail.com
-  - stack.designated_address = 15j5fHZzL8Qkzi7YBtChf2GDfM6RJvUht7
+  - stack.designated_address = 15j5fHZzL8Qkzi7YBtChf2GDfM6RJvUht7 (pending HACD Labs confirmation)
 
 No math, copy-safety, utility-honesty, structural, or terminology issues found.

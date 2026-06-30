@@ -36,7 +36,7 @@ first_phase_hacd_lots + public_phase_hacd_lots = total_hacd_lots
 - Network fee: standard Hacash transaction fee per lot (paid by participant)
 - Formation cost reference is an on-chain cost input, not a guaranteed price floor.
 
-Minimum backing reference per lot: 1 HACD + 50 HAC + network fee.
+Per-lot formation inputs: 1 HACD + 50 HAC + network fee (formation cost reference — not a price floor and not backing).
 
 ## Formation rules
 

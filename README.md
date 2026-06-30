@@ -4,7 +4,7 @@
 
 **Live demo:** https://yusizer.github.io/flowmark/
 
-**Bounty:** B8 «Build on HACD» on Wizz, sponsored by GrowStreams.
+**Bounty:** B8 «Build on HACD» on [Wizz](https://wizzhq.xyz/bounties/build_on_hacd_), sponsored by GrowStreams.
 **Ticker:** FLOW · **Category:** utility · **Accent:** `#6FB3AB`
 
 ---
@@ -40,7 +40,7 @@ The app is a single self-contained `index.html` (hash router + `localStorage`), 
 | Per participant | min 1 / max 10 HACD |
 | Removal effect | `burn` (receipt annulled; formation history permanent) |
 
-Full validated spec: [`issuance/launch_spec.json`](issuance/launch_spec.json) — passes `validate_launch_spec.py` with 0 ERRORs.
+Full validated spec: [`issuance/launch_spec.json`](issuance/launch_spec.json) — passes `validate_launch_spec.py` with 0 ERRORs (2 expected draft warnings; `--strict` pending issuer + HACD Labs sign-off).
 
 ## Why this is honest
 
@@ -60,7 +60,7 @@ Generated with the [HACD Incubator AI Issuance Skill](https://github.com/Satyam-
 
 ## Submission
 
-Built for **B8 «Build on HACD»** (Wizz, sponsored by GrowStreams). Submit target: hacd.it/incubator Google Form + Wizz «Submit Your Entry». Quest completed via growstreams.xyz/app/projects/HACD (Vara / SubWallet).
+Built for **B8 «Build on HACD»** (Wizz, sponsored by GrowStreams). Submit target: hacd.it/incubator Google Form + Wizz «Submit Your Entry». Quest: growstreams.xyz/app/projects/HACD (Vara / SubWallet) — to be completed before final submission.
 
 ---
 
