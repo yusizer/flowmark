@@ -2,7 +2,7 @@
 
 > Bitcoin proved PoW for money. **HACD brings PoW to assets.** FlowMark anchors every money-streaming commitment to a PoW-mined HACD formation record — so an external party (employer, auditor, revenue-share partner) can verify a stream started *without trusting the streaming platform*.
 
-**Live demo:** _populated after GitHub Pages deploy_
+**Live demo:** https://yusizer.github.io/flowmark/
 
 **Bounty:** B8 «Build on HACD» on Wizz, sponsored by GrowStreams.
 **Ticker:** FLOW · **Category:** utility · **Accent:** `#6FB3AB`

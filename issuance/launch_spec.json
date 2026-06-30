@@ -5,7 +5,7 @@
     "ticker": "FLOW",
     "category": "utility",
     "description": "FlowMark anchors money-streaming commitments to HACD Stack formation records — immutable, PoW-backed proof that a payment stream started.",
-    "website": "https://flowmark.hacd",
+    "website": "https://yusizer.github.io/flowmark/",
     "x": "@Yusifab7",
     "contact": "yusifabdullayev48@gmail.com"
   },
@@ -54,7 +54,7 @@
       "GrowStreams auto-anchoring, revenue-share distributions, and receipt marketplace are planned only — must not be promised in public copy.",
       "Maximum 10 HACD per participant must be enforced at Launchpad level.",
       "designated_address set to issuer's Hacash address 15j5fHZzL8Qkzi7YBtChf2GDfM6RJvUht7 for the first 32 genesis lots.",
-      "project.website is a placeholder — replace with the live Lovable demo URL before final submission.",
+      "project.website = live GitHub Pages demo URL (https://yusizer.github.io/flowmark/).",
       "Build on HACD bounty (Wizz, by GrowStreams) submission — quest completed via growstreams.xyz/app/projects/HACD."
     ]
   }
