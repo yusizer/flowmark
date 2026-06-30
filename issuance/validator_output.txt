@@ -1,19 +1,19 @@
-$ python3 scripts/validate_launch_spec.py submissions/project_flow/launch_spec.json
+$ python3 .hacd-skill/scripts/validate_launch_spec.py submissions/project_flow/launch_spec.json
 
 WARNING: review.issuer_confirmed is not true (expected for a draft)
 WARNING: review.hacd_labs_reviewed is not true (expected for a draft)
 OK: launch spec passed validation
 Formation cost reference: 12,800 HAC + network fees
 (2 warning(s) — fine for a draft, resolve before final submission)
-Next: fix any warnings, then re-run with --strict for the final check.
 
-------------------------------------------------------------
-Roast mode self-review (prompts/roast_mode.md): TOTAL ISSUES FOUND: 1
-  - PROBLEM: project.website is a placeholder.
-    LOCATION: launch_spec.json → project.website
-    FIX: Replace with the live Lovable demo URL once the demo is deployed.
-  BLOCKERS: none (placeholder is acceptable for a draft; replace before final submission).
-  WARNINGS: website placeholder; issuer_confirmed/hacd_labs_reviewed false (expected for draft).
+--strict: exits 1 because the 2 draft warnings are treated as errors. Both are
+legitimately false for a draft (issuer_confirmed / hacd_labs_reviewed require real
+issuer confirmation and HACD Labs review); left false intentionally — setting them
+true now would be misrepresentation.
+
+Previous roast mode self-review: 1 issue (project.website placeholder) — RESOLVED.
+project.website now = https://yusizer.github.io/flowmark/ (live GitHub Pages demo).
+Re-run roast mode before final submission for a fresh 0-issue confirmation.
 
 Issuer data confirmed in spec:
   - project.x = @Yusifab7
